@@ -61,12 +61,12 @@ const AboutUs = () => {
                 <Title size={"h2"}>Cách chúng tôi vận chuyển</Title>
             </Container>
             <Container size={"xl"}>
-                <SimpleGrid cols={4} mt="xl">
+                <SimpleGrid cols={{base: 2, sm: 4}} mt="xl">
                     {
                         data.map((item) => (
                             <Card>
-                                <Container>
-                                    <Image src={item.image} h={170} style={{ objectFit: 'cover' }}></Image>
+                                <Container h={'100%'}>
+                                    <Image src={item.image} h={'80%'} style={{ objectFit: 'cover' }}></Image>
                                 </Container>
                                 <Container m={20}>
                                     <Title size={"h4"}>{item.title}</Title>
@@ -81,7 +81,7 @@ const AboutUs = () => {
                 <Title size={"h2"}>Thành viên nhóm</Title>
             </Container>
             <Container size={"xl"}>
-                <SimpleGrid cols={4} mt="xl">
+                <SimpleGrid cols={{base: 2, sm: 4}} mt="xl">
                     {
                         info.map((item) => (
                             <Card>

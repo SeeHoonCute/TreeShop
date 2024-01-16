@@ -7,7 +7,7 @@ import { LogIn } from "./pages/LogIn/LogIn";
 import Products from "./pages/Products/Products";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import Blogs from "./pages/Blogs/Blogs";
-import {ContactUs} from "./pages/ContactUs/ContactUs";
+import { ContactUs } from "./pages/ContactUs/ContactUs";
 import Confirmation from "./pages/Confirmation/Confirmation";
 export const Routes: RouteObject[] = [
     {
@@ -16,27 +16,27 @@ export const Routes: RouteObject[] = [
         children: [
             {
                 path: "",
-                element: <Home/>,
+                element: <Home />,
             },
             {
                 path: "/products",
-                element: <Products/>,
+                element: <Products />,
             },
             {
                 path: "/aboutUs",
-                element: <AboutUs/>,
+                element: <AboutUs />,
             },
             {
                 path: "/confirmation",
-                element: <Confirmation/>,
+                element: <Confirmation />,
             },
             {
                 path: "/blogs",
-                element: <Blogs/>,
+                element: <Blogs />,
             },
             {
                 path: "/contactUs",
-                element: <ContactUs/>,
+                element: <ContactUs />,
             }
         ]
     },
@@ -47,6 +47,6 @@ export const Routes: RouteObject[] = [
     },
     {
         path: "/signIn",
-        element: <SignIn/>,
+        element: <SignIn />,
     }
 ]

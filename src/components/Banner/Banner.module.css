@@ -29,10 +29,17 @@
     font-weight: 700;
     text-transform: uppercase;
   }
-  .carousel{
+  .carousel {
     height: 440px;
-  }
+    @media(max-width:48em) {
+      height: 300px;
+    }
+    @media(max-width:36em) {
+      height: 260px;
+    }
+  }  
   .Button{
     width: -webkit-fill-available;
     direction: rtl;
   }
+  

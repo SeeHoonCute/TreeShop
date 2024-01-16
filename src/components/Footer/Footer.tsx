@@ -36,7 +36,7 @@ const data = [
 export function Footer() {
     const groups = data.map((group) => {
         const links = group.links.map((link, index) => (
-            <Grid  p={8}>
+            <Grid p={8}>
                 <Text<'a'>
                     style={{ color: "gray" }}
                     key={index}
@@ -62,7 +62,7 @@ export function Footer() {
         <footer className={classes.footer}>
             <Container className={classes.inner} size={"xl"}>
                 <Grid>
-                    <GridCol span={3}>
+                    <GridCol span={{ base: 6, xs: 3 }}>
                         <div className={classes.logo}>
                             <Image src={logo} w={200}></Image>
                             <Text size="xs" c="dimmed" className={classes.description}>
@@ -70,8 +70,8 @@ export function Footer() {
                             </Text>
                         </div>
                     </GridCol>
-                    <GridCol span={1}></GridCol>
-                    <GridCol span={4}>
+                    <GridCol span={{ xs: 1 }} visibleFrom="xs"></GridCol>
+                    <GridCol span={{ base: 6, xs: 4 }}>
                         <div>
                             <Title size={"h5"}>THÔNG TIN LIÊN HỆ</Title>
                             <TypographyStylesProvider pl={0}>
@@ -82,7 +82,7 @@ export function Footer() {
                             </TypographyStylesProvider>
                         </div>
                     </GridCol>
-                    <GridCol span={4}>
+                    <GridCol span={{ xs: 4 }} visibleFrom="xs">
                         <div className={classes.groups}>{groups}</div>
                     </GridCol>
                 </Grid>

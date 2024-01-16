@@ -14,7 +14,7 @@ import classes from "./Home.module.css";
 // import ImageCard from "../../components/BlogCard/BlogCard";
 import { useNavigate } from "react-router-dom";
 import ImageCard, { BlogCard } from "../../components/BlogCard/BlogCard";
-import {Product} from "../../components/ProductCard/ProductCard";
+import { Product } from "../../components/ProductCard/ProductCard";
 import CamTuCau from '../../assets/products/hoa-cam-tu-cau.jpg';
 import MauDon from '../../assets/products/hoa-mau-don.jpg';
 import Tulip from '../../assets/products/hoa-tulip.jpg';
@@ -22,6 +22,7 @@ import cayCam from "../../assets/products/cay-cam.jpg";
 import cayLuu from "../../assets/products/cay-luu.jpg";
 import caySenDa from "../../assets/products/cay-sen-da.jpg";
 import hoaMauDon from "../../assets/products/hoa-mau-don.jpg";
+import { useHover } from "@mantine/hooks";
 const data: ICardProps[] = [
     {
         id: 1,
@@ -76,22 +77,28 @@ const dataBlogCard: BlogCard[] = [
     },
 ]
 const items: Product[] = [
-    { name: "Giống cây cam Vinh", img: cayCam, price: 360000 },
-    { name: "Lựu Israel - Hạt mọng nước", img: cayLuu, price: 750000 },
-    { name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
-    { name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
-    { name: "Giống cây cam Vinh", img: cayCam, price: 360000 },
+    { id: 1, name: "Giống cây cam Vinh", img: cayCam, price: 360000 },
+    { id: 2, name: "Lựu Israel - Hạt mọng nước", img: cayLuu, price: 750000 },
+    { id: 3, name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
+    { id: 4, name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
+    { id: 5, name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
+    { id: 6, name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
+    { id: 7, name: "Giống cây cam Vinh", img: cayCam, price: 360000 },
+    { id: 8, name: "Lựu Israel - Hạt mọng nước", img: cayLuu, price: 750000 },
+    { id: 9, name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
+    { id: 10, name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
     // { name: "Lựu Israel - Hạt mọng nước", img: cayLuu, price: 750000 },
 ];
 const Home = () => {
     let navigator = useNavigate();
+    const { hovered, ref } = useHover();
     return (
         <>
-            <Grid styles={{inner:{margin:0, width: '100%'}}}>
-                <GridCol span={9}>
+            <Grid styles={{ inner: { margin: 0, width: '100%' } }}>
+                <GridCol span={{ base: 12, sm: 9 }}>
                     <Banner {...backgroundData} />
                 </GridCol>
-                <GridCol span={3}>
+                <GridCol span={{ base: 12, sm: 3 }} visibleFrom="sm">
                     <Banner {...data} />
                 </GridCol>
             </Grid>
@@ -102,16 +109,16 @@ const Home = () => {
                     
                 </SimpleGrid>
             </Card> */}
-            
+
             <Card withBorder radius="md" className={classes.card} pb={30}>
                 <Container className={classes.button}>
                     <Title size={"h2"}>Sản phẩm phổ biến</Title>
                 </Container>
-                <SimpleGrid cols={5} mt="md">
+                <SimpleGrid cols={{ base: 2, xs: 3, sm: 5 }} mt="md">
                     {/* {itemcollection} */}
                     {
-                        items.map((item)=>(
-                            <ProductCard item={item}/>
+                        items.map((item) => (
+                            <ProductCard item={item} />
 
                         ))
                     }
@@ -123,7 +130,7 @@ const Home = () => {
                     <Title size={"h2"}>Bài viết hướng dẫn</Title>
                 </Container>
                 <Container size={"xl"}>
-                    <SimpleGrid cols={3} mt="xl">
+                    <SimpleGrid cols={{ base: 1, xs: 2, sm: 3 }} mt="xl">
                         {
                             dataBlogCard.map((item) => (
                                 <ImageCard dataBlogCard={item} />
@@ -131,8 +138,8 @@ const Home = () => {
                         }
 
                     </SimpleGrid>
-                    <Container mt={20} style={{ display: "flex", justifyContent: "center" }}>
-                        <Button radius={20} style={{ backgroundColor: "#1E3B27" }} onClick={() => navigator('/blogs')}>Xem tất cả các bài viết</Button>
+                    <Container mt={20} style={{ display: "flex", justifyContent: "center" }} ref={ref}>
+                        <Button radius={20} style={{ backgroundColor: hovered ? '#DF4D3F' : '#1E3B27' }} onClick={() => navigator('/blogs')}>Xem tất cả các bài viết</Button>
                     </Container>
                 </Container>
             </Card>

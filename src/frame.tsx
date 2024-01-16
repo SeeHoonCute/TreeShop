@@ -13,7 +13,7 @@ const Frame = () => {
             <AppShell.Main mt={60}>
                 <Outlet />
             </AppShell.Main>
-            <Footer></Footer>
+            <Footer />
         </AppShell>
     )
 };

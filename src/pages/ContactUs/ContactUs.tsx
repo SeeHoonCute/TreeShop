@@ -1,19 +1,34 @@
 import { TextInput, Textarea, SimpleGrid, Group, Title, Button, Container } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { FaqWithImage } from '../../components/FAQ/FAQ';
+import { useLocation } from 'react-router-dom';
+// import { isDisabled } from '@testing-library/user-event/dist/utils';
 
 export function ContactUs() {
+    const location = useLocation();
+    const item = location.state?.data || {};
+    console.log(item.id);
     const form = useForm({
         initialValues: {
             name: '',
             email: '',
+            phone: '',
+            location: '',
+            nameProduct: '',
+            numberProduct: 0,
             subject: '',
             message: '',
         },
         validate: {
-            name: (value) => value.trim().length < 2,
+            name: (value) => value.trim().length < 3,
             email: (value) => !/^\S+@\S+$/.test(value),
             subject: (value) => value.trim().length === 0,
+            // nameProduct: (value) => value.trim().length === 0,
+            numberProduct: (value) => isNaN(value),
+            location: (value) => value.trim().length === 0,
+            phone: (value) => {
+               return value.trim().length < 10 || !/^\d+$/.test(value)
+            }
         },
     });
 
@@ -38,6 +53,7 @@ export function ContactUs() {
                             placeholder="Nguyễn Thị Ánh"
                             name="name"
                             variant="filled"
+                            required
                             {...form.getInputProps('name')}
                         />
                         <TextInput
@@ -45,18 +61,51 @@ export function ContactUs() {
                             placeholder="nguyenanh@gmail.com"
                             name="email"
                             variant="filled"
+                            required
                             {...form.getInputProps('email')}
                         />
                     </SimpleGrid>
-
+                    <TextInput
+                        label="Số điện thoại"
+                        placeholder="0395216485"
+                        name="phone"
+                        variant="filled"
+                        required
+                        {...form.getInputProps('phone')}
+                    />
+                    <TextInput
+                        label="Địa chỉ"
+                        placeholder="20A, xã Tân Khánh, huyện Vụ Bản, tỉnh Nam Định"
+                        name="location"
+                        variant="filled"
+                        required
+                        {...form.getInputProps('location')}
+                    />
                     <TextInput
                         label="Tiêu đề"
-                        placeholder="Nội dung chính"
+                        placeholder="Nội dung chính - Đặt mua sản phẩm"
                         mt="md"
                         name="subject"
                         variant="filled"
+                        required
                         {...form.getInputProps('subject')}
                     />
+                    <SimpleGrid cols={{ base: 1, sm: 2 }} mt="xl">
+                        <TextInput
+                            label="Tên sản phẩm"
+                            value={item.name}
+                            name="nameProduct"
+                            variant="filled"
+                        >
+                        </TextInput>
+                        <TextInput
+                            label="Số lượng"
+                            placeholder="5"
+                            name="numberProduct"
+                            variant="filled"
+                            {...form.getInputProps('numberProduct')}
+                        />
+                    </SimpleGrid>
                     <Textarea
                         mt="md"
                         label="Nội dung"

@@ -61,6 +61,60 @@ const dataBlogCard: BlogCard[] = [
         tite: "Cách trồng hoa Cẩm Tú Cầu xứ lạnh",
         content: "Cẩm tú cầu là loại cây cảnh phổ biến với nhiều loại và màu sắc khác nhau. Mặc dù cẩm tú cầu thường mọc ở các khu vực ấm áp, nhưng có một số loại cẩm tú cầu có thể được trồng ở vùng xứ lạnh nếu bạn chú ý đến một số điều quan trọng. Dưới đây là hướng dẫn cơ bản để trồng cẩm tú cầu ở khu vực có thời tiết lạnh",
     },
+    {
+        image: CamTuCau,
+        url: "#",
+        tite: "Cách trồng hoa Cẩm Tú Cầu xứ lạnh",
+        content: "Cẩm tú cầu là loại cây cảnh phổ biến với nhiều loại và màu sắc khác nhau. Mặc dù cẩm tú cầu thường mọc ở các khu vực ấm áp, nhưng có một số loại cẩm tú cầu có thể được trồng ở vùng xứ lạnh nếu bạn chú ý đến một số điều quan trọng. Dưới đây là hướng dẫn cơ bản để trồng cẩm tú cầu ở khu vực có thời tiết lạnh",
+    },
+    {
+        image: MauDon,
+        url: "#",
+        tite: "Cách trồng hoa Cẩm Tú Cầu xứ lạnh",
+        content: "Cẩm tú cầu là loại cây cảnh phổ biến với nhiều loại và màu sắc khác nhau. Mặc dù cẩm tú cầu thường mọc ở các khu vực ấm áp, nhưng có một số loại cẩm tú cầu có thể được trồng ở vùng xứ lạnh nếu bạn chú ý đến một số điều quan trọng. Dưới đây là hướng dẫn cơ bản để trồng cẩm tú cầu ở khu vực có thời tiết lạnh",
+    },
+    {
+        image: Tulip,
+        url: "#",
+        tite: "Cách trồng hoa Cẩm Tú Cầu xứ lạnh",
+        content: "Cẩm tú cầu là loại cây cảnh phổ biến với nhiều loại và màu sắc khác nhau. Mặc dù cẩm tú cầu thường mọc ở các khu vực ấm áp, nhưng có một số loại cẩm tú cầu có thể được trồng ở vùng xứ lạnh nếu bạn chú ý đến một số điều quan trọng. Dưới đây là hướng dẫn cơ bản để trồng cẩm tú cầu ở khu vực có thời tiết lạnh",
+    },
+    {
+        image: CamTuCau,
+        url: "#",
+        tite: "Cách trồng hoa Cẩm Tú Cầu xứ lạnh",
+        content: "Cẩm tú cầu là loại cây cảnh phổ biến với nhiều loại và màu sắc khác nhau. Mặc dù cẩm tú cầu thường mọc ở các khu vực ấm áp, nhưng có một số loại cẩm tú cầu có thể được trồng ở vùng xứ lạnh nếu bạn chú ý đến một số điều quan trọng. Dưới đây là hướng dẫn cơ bản để trồng cẩm tú cầu ở khu vực có thời tiết lạnh",
+    },
+    {
+        image: MauDon,
+        url: "#",
+        tite: "Cách trồng hoa Cẩm Tú Cầu xứ lạnh",
+        content: "Cẩm tú cầu là loại cây cảnh phổ biến với nhiều loại và màu sắc khác nhau. Mặc dù cẩm tú cầu thường mọc ở các khu vực ấm áp, nhưng có một số loại cẩm tú cầu có thể được trồng ở vùng xứ lạnh nếu bạn chú ý đến một số điều quan trọng. Dưới đây là hướng dẫn cơ bản để trồng cẩm tú cầu ở khu vực có thời tiết lạnh",
+    },
+    {
+        image: Tulip,
+        url: "#",
+        tite: "Cách trồng hoa Cẩm Tú Cầu xứ lạnh",
+        content: "Cẩm tú cầu là loại cây cảnh phổ biến với nhiều loại và màu sắc khác nhau. Mặc dù cẩm tú cầu thường mọc ở các khu vực ấm áp, nhưng có một số loại cẩm tú cầu có thể được trồng ở vùng xứ lạnh nếu bạn chú ý đến một số điều quan trọng. Dưới đây là hướng dẫn cơ bản để trồng cẩm tú cầu ở khu vực có thời tiết lạnh",
+    },
+    {
+        image: CamTuCau,
+        url: "#",
+        tite: "Cách trồng hoa Cẩm Tú Cầu xứ lạnh",
+        content: "Cẩm tú cầu là loại cây cảnh phổ biến với nhiều loại và màu sắc khác nhau. Mặc dù cẩm tú cầu thường mọc ở các khu vực ấm áp, nhưng có một số loại cẩm tú cầu có thể được trồng ở vùng xứ lạnh nếu bạn chú ý đến một số điều quan trọng. Dưới đây là hướng dẫn cơ bản để trồng cẩm tú cầu ở khu vực có thời tiết lạnh",
+    },
+    {
+        image: MauDon,
+        url: "#",
+        tite: "Cách trồng hoa Cẩm Tú Cầu xứ lạnh",
+        content: "Cẩm tú cầu là loại cây cảnh phổ biến với nhiều loại và màu sắc khác nhau. Mặc dù cẩm tú cầu thường mọc ở các khu vực ấm áp, nhưng có một số loại cẩm tú cầu có thể được trồng ở vùng xứ lạnh nếu bạn chú ý đến một số điều quan trọng. Dưới đây là hướng dẫn cơ bản để trồng cẩm tú cầu ở khu vực có thời tiết lạnh",
+    },
+    {
+        image: Tulip,
+        url: "#",
+        tite: "Cách trồng hoa Cẩm Tú Cầu xứ lạnh",
+        content: "Cẩm tú cầu là loại cây cảnh phổ biến với nhiều loại và màu sắc khác nhau. Mặc dù cẩm tú cầu thường mọc ở các khu vực ấm áp, nhưng có một số loại cẩm tú cầu có thể được trồng ở vùng xứ lạnh nếu bạn chú ý đến một số điều quan trọng. Dưới đây là hướng dẫn cơ bản để trồng cẩm tú cầu ở khu vực có thời tiết lạnh",
+    },
 ]
 // function setIndexArray(start: number, end: number,) {
 //     if (end) {
@@ -71,7 +125,7 @@ const dataBlogCard: BlogCard[] = [
 //         return dataBlogCard.slice();
 //     }
 // }
-function chunk<T>(array: T[], size: number): T[][] {
+export function chunk<T>(array: T[], size: number): T[][] {
     if (!array.length) {
         return [];
     }
@@ -93,7 +147,7 @@ const Blogs = () => {
                     <Title size={"h1"}>Bài viết hướng dẫn</Title>
                 </Container>
                 <Container size={"xl"} display={'flex'} style={{ justifyContent: 'center' }}>
-                    <SimpleGrid cols={3} mt="xl">
+                    <SimpleGrid cols={{ base: 1, xs: 2, sm: 3 }} mt="xl">
                         {items}
                     </SimpleGrid>
                 </Container>

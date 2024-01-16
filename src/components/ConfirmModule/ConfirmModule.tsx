@@ -4,29 +4,31 @@ import { IconCheck } from '@tabler/icons-react';
 import classes from './ConfirmModule.module.css';
 import promise from "../../assets/images/promise.png";
 import { useNavigate } from 'react-router-dom';
+import { useHover } from '@mantine/hooks';
 
 export function ConfirmModule() {
     let navigator = useNavigate();
+    const { hovered, ref } = useHover();
     return (
         <Container size="xl">
             <div className={classes.inner}>
-                <Grid styles={{inner:{margin:0, width: '100%'}}}>
-                    <GridCol span={7}>
+                <Grid styles={{ inner: { margin: 0, width: '100%' } }}>
+                    <GridCol span={{ base: 12, sm: 6 }}>
                         <div className={classes.content}>
                             <Title size={"h2"}>
                                 Chúng Tôi Hứa Hẹn Một Trải Nghiệm Tốt Nhất Cho Bạn!
                             </Title>
-                            <Text c="dimmed" mt="md" style={{fontSize:"14px"}}>
-                            Chúng tôi hiểu rằng cây cảnh không chỉ là một phần của không gian sống, mà còn là một phần của cuộc sống của bạn. Vì vậy, chúng tôi cam kết mang đến cho bạn không chỉ những cây cảnh đẹp mắt, mà còn là trải nghiệm mua sắm đáng nhớ và chăm sóc khách hàng tận tâm.
+                            <Text c="dimmed" mt="md" style={{ fontSize: "14px" }}>
+                                Chúng tôi hiểu rằng cây cảnh không chỉ là một phần của không gian sống, mà còn là một phần của cuộc sống của bạn. Vì vậy, chúng tôi cam kết mang đến cho bạn không chỉ những cây cảnh đẹp mắt, mà còn là trải nghiệm mua sắm đáng nhớ và chăm sóc khách hàng tận tâm.
                             </Text>
 
                             <List
                                 mt={30}
                                 spacing="sm"
                                 size="sm"
-                                style={{fontSize:"16px"}}
+                                style={{ fontSize: "16px" }}
                                 icon={
-                                    <ThemeIcon size={20} radius="xl" style={{ backgroundColor:"#1E3B27"}}>
+                                    <ThemeIcon size={20} radius="xl" style={{ backgroundColor: "#1E3B27" }}>
                                         <IconCheck style={{ width: rem(12), height: rem(12) }} stroke={1.5} />
                                     </ThemeIcon>
                                 }
@@ -42,9 +44,9 @@ export function ConfirmModule() {
                                 </List.Item>
                             </List>
 
-                            <Group mt={30}>
-                                <Button radius="xl" size="md" className={classes.control} style={{ backgroundColor:"#1E3B27"}}
-                                onClick={()=>navigator('/confirmation')}>
+                            <Group mt={30} ref={ref}>
+                                <Button radius="xl" size="md" className={classes.control} style={{ backgroundColor: hovered ? '#DF4D3F' : '#1E3B27' }}
+                                    onClick={() => navigator('/confirmation')}>
                                     Xem thêm
                                 </Button>
                                 {/* <Button variant="default" radius="xl" size="md" className={classes.control}>
@@ -53,8 +55,13 @@ export function ConfirmModule() {
                             </Group>
                         </div>
                     </GridCol>
-                    <GridCol span={5}>
-                        <Image src={promise} className={classes.image}  />
+                    <GridCol span={{ base: 12, sm: 1 }}>
+
+                    </GridCol>
+                    <GridCol span={{ base: 12, sm: 5 }}
+                        visibleFrom="sm"
+                    >
+                        <Image src={promise} className={classes.image} />
                     </GridCol>
                 </Grid>
             </div>

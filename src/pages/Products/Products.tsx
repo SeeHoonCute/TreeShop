@@ -1,4 +1,4 @@
-import { Accordion, Checkbox, Container, Grid, GridCol, Slider, Title, Text, SimpleGrid } from "@mantine/core";
+import { Accordion, Checkbox, Container, Grid, GridCol, Slider, Title, Text, SimpleGrid, Pagination } from "@mantine/core";
 import classes from "./Products.module.css";
 import { IconPlant } from '@tabler/icons-react';
 import { IconMapPin } from '@tabler/icons-react';
@@ -7,7 +7,8 @@ import cayLuu from "../../assets/products/cay-luu.jpg";
 import caySenDa from "../../assets/products/cay-sen-da.jpg";
 import hoaMauDon from "../../assets/products/hoa-mau-don.jpg";
 import ProductCard, { Product } from "../../components/ProductCard/ProductCard";
-
+import { chunk } from "../Blogs/Blogs";
+import { useState } from "react";
 const data = [
     {
         value: '1',
@@ -36,29 +37,36 @@ const data = [
         ]
     }
 ]
-const items: Product[] = [
-    { name: "Giống cây cam Vinh", img: cayCam, price: 360000 },
-    { name: "Lựu Israel - Hạt mọng nước", img: cayLuu, price: 750000 },
-    { name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
-    { name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
-    { name: "Giống cây cam Vinh", img: cayCam, price: 360000 },
-    { name: "Giống cây cam Vinh", img: cayCam, price: 360000 },
-    { name: "Lựu Israel - Hạt mọng nước", img: cayLuu, price: 750000 },
-    { name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
-    { name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
-    { name: "Giống cây cam Vinh", img: cayCam, price: 360000 },
-    { name: "Giống cây cam Vinh", img: cayCam, price: 360000 },
-    { name: "Lựu Israel - Hạt mọng nước", img: cayLuu, price: 750000 },
-    { name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
-    { name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
-    { name: "Giống cây cam Vinh", img: cayCam, price: 360000 },
+const products: Product[] = [
+    { id: 1, name: "Giống cây cam Vinh", img: cayCam, price: 360000 },
+    { id: 2, name: "Lựu Israel - Hạt mọng nước", img: cayLuu, price: 750000 },
+    { id: 3, name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
+    { id: 4, name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
+    { id: 5, name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
+    { id: 6, name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
+    { id: 7, name: "Giống cây cam Vinh", img: cayCam, price: 360000 },
+    { id: 8, name: "Lựu Israel - Hạt mọng nước", img: cayLuu, price: 750000 },
+    { id: 9, name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
+    { id: 10, name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
+    { id: 11, name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
+    { id: 12, name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
+    { id: 13, name: "Giống cây cam Vinh", img: cayCam, price: 360000 },
+    { id: 14, name: "Lựu Israel - Hạt mọng nước", img: cayLuu, price: 750000 },
+    { id: 15, name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
+    { id: 16, name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
+    { id: 17, name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
+    { id: 18, name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
+    
     // { name: "Lựu Israel - Hạt mọng nước", img: cayLuu, price: 750000 },
 ];
+const dataProducts = chunk(products, 8);
 const Products = () => {
+    const [activePage, setPage] = useState(1);
+
     return (
         <>
-            <Grid styles={{inner:{margin:0, width: '100%'}}}>
-                <GridCol span={2.5}>
+            <Grid styles={{ inner: { margin: 0, width: '100%' } }}>
+                <GridCol span={{ base: 3, sm: 2.5 }} visibleFrom="xs">
                     <nav className={classes.navbar}>
                         <Title size={'h4'}>LỌC</Title>
                         {
@@ -86,7 +94,7 @@ const Products = () => {
                             <Text>Giá</Text>
                             <Slider
                                 step={25}
-                                w={'200px'}
+                                w={'80%'}
                                 color="#1E3B27"
                                 marks={[
                                     { value: 25, label: '20k' },
@@ -97,18 +105,21 @@ const Products = () => {
                         </Container>
                     </nav>
                 </GridCol>
-                <GridCol span={9.5}>
+                <GridCol span={{ base: 12, xs: 9, sm: 9.5 }}>
                     {/* <ProductCard items={items}/> */}
-                    <SimpleGrid cols={4} m="xl">
+                    <SimpleGrid cols={{ base: 2, sm: 4 }} m="xl">
                         {
-                            items.map((item) => (
+                            dataProducts[activePage - 1].map((item) => (
                                 <ProductCard item={item} />
                             ))
                         }
 
                     </SimpleGrid>
                 </GridCol>
-            </Grid>
+            </Grid >
+            <Container display={'flex'} style={{ justifyContent: 'center' }}>
+                    <Pagination color="#1E3B27" total={dataProducts.length} value={activePage} onChange={setPage} mt="sm" />
+                </Container>
         </>
     )
 };
