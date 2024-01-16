@@ -2,6 +2,7 @@ import { TextInput, Textarea, SimpleGrid, Group, Title, Button, Container } from
 import { useForm } from '@mantine/form';
 import { FaqWithImage } from '../../components/FAQ/FAQ';
 import { useLocation } from 'react-router-dom';
+import { sendMail } from '../../api/mailApi';
 // import { isDisabled } from '@testing-library/user-event/dist/utils';
 
 export function ContactUs() {
@@ -36,7 +37,18 @@ export function ContactUs() {
         <>
 
             <Container>
-                <form onSubmit={form.onSubmit(() => { })}>
+                <form onSubmit={form.onSubmit(() => {
+                    sendMail({
+                        email: form.getInputProps("email").value as unknown as string,
+                        location: form.getInputProps("location").value as unknown as string,
+                        message: form.getInputProps("message").value as unknown as string,
+                        name: form.getInputProps("name").value as unknown as string,
+                        nameProduct: form.getInputProps("nameProduct").value as unknown as string,
+                        numberProduct: form.getInputProps("numberProduct").value as unknown as number,
+                        phone: form.getInputProps("phone").value as unknown as string,
+                        subject: form.getInputProps("subject").value as unknown as string,
+                    });
+                 })}>
                     <Title
                         order={2}
                         size="h1"
@@ -119,7 +131,7 @@ export function ContactUs() {
                     />
 
                     <Group justify="center" mt="xl">
-                        <Button type="submit" size="md" w={150} radius={20} style={{ backgroundColor: "#1E3B27" }}>
+                        <Button type="submit" size="md" w={150} radius={20} style={{ backgroundColor: "#1E3B27" } }>
                             Liên hệ
                         </Button>
                     </Group>
