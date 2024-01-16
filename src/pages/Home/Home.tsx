@@ -23,6 +23,8 @@ import cayLuu from "../../assets/products/cay-luu.jpg";
 import caySenDa from "../../assets/products/cay-sen-da.jpg";
 import hoaMauDon from "../../assets/products/hoa-mau-don.jpg";
 import { useHover } from "@mantine/hooks";
+import { getListProduct } from "../../api/productApi";
+import { useEffect } from "react";
 const data: ICardProps[] = [
     {
         id: 1,
@@ -92,6 +94,12 @@ const items: Product[] = [
 const Home = () => {
     let navigator = useNavigate();
     const { hovered, ref } = useHover();
+    useEffect(() => {
+        console.log("Data");
+        getListProduct().then((data) => {
+            console.log(data.products);
+        });
+    })
     return (
         <>
             <Grid styles={{ inner: { margin: 0, width: '100%' } }}>

@@ -8,7 +8,8 @@ import caySenDa from "../../assets/products/cay-sen-da.jpg";
 import hoaMauDon from "../../assets/products/hoa-mau-don.jpg";
 import ProductCard, { Product } from "../../components/ProductCard/ProductCard";
 import { chunk } from "../Blogs/Blogs";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getListProduct } from "../../api/productApi";
 const data = [
     {
         value: '1',
@@ -37,31 +38,39 @@ const data = [
         ]
     }
 ]
-const products: Product[] = [
-    { id: 1, name: "Giống cây cam Vinh", img: cayCam, price: 360000 },
-    { id: 2, name: "Lựu Israel - Hạt mọng nước", img: cayLuu, price: 750000 },
-    { id: 3, name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
-    { id: 4, name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
-    { id: 5, name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
-    { id: 6, name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
-    { id: 7, name: "Giống cây cam Vinh", img: cayCam, price: 360000 },
-    { id: 8, name: "Lựu Israel - Hạt mọng nước", img: cayLuu, price: 750000 },
-    { id: 9, name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
-    { id: 10, name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
-    { id: 11, name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
-    { id: 12, name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
-    { id: 13, name: "Giống cây cam Vinh", img: cayCam, price: 360000 },
-    { id: 14, name: "Lựu Israel - Hạt mọng nước", img: cayLuu, price: 750000 },
-    { id: 15, name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
-    { id: 16, name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
-    { id: 17, name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
-    { id: 18, name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
-    
-    // { name: "Lựu Israel - Hạt mọng nước", img: cayLuu, price: 750000 },
-];
-const dataProducts = chunk(products, 8);
 const Products = () => {
+    // const products: Product[] = [
+    //     { id: 1, name: "Giống cây cam Vinh", img: cayCam, price: 360000 },
+    //     { id: 2, name: "Lựu Israel - Hạt mọng nước", img: cayLuu, price: 750000 },
+    //     { id: 3, name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
+    //     { id: 4, name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
+    //     { id: 5, name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
+    //     { id: 6, name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
+    //     { id: 7, name: "Giống cây cam Vinh", img: cayCam, price: 360000 },
+    //     { id: 8, name: "Lựu Israel - Hạt mọng nước", img: cayLuu, price: 750000 },
+    //     { id: 9, name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
+    //     { id: 10, name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
+    //     { id: 11, name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
+    //     { id: 12, name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
+    //     { id: 13, name: "Giống cây cam Vinh", img: cayCam, price: 360000 },
+    //     { id: 14, name: "Lựu Israel - Hạt mọng nước", img: cayLuu, price: 750000 },
+    //     { id: 15, name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
+    //     { id: 16, name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
+    //     { id: 17, name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
+    //     { id: 18, name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
+        
+    //     // { name: "Lựu Israel - Hạt mọng nước", img: cayLuu, price: 750000 },
+    // ];
     const [activePage, setPage] = useState(1);
+    const [produ, setProducts] = useState<Product[]>([]);
+    useEffect(() => {
+        getListProduct().then((data) => {
+            const newProd = data.products?.map((item : any) => 
+            ({ id: item.id, name: item.name, img: item.image, price: item.price } as Product))
+            setProducts(newProd);
+        });
+    }, [])
+    const dataProducts = chunk(produ, 8);
 
     return (
         <>
@@ -109,7 +118,7 @@ const Products = () => {
                     {/* <ProductCard items={items}/> */}
                     <SimpleGrid cols={{ base: 2, sm: 4 }} m="xl">
                         {
-                            dataProducts[activePage - 1].map((item) => (
+                            dataProducts[activePage - 1]?.map((item) => (
                                 <ProductCard item={item} />
                             ))
                         }

@@ -1,25 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { createTheme, MantineProvider } from '@mantine/core';
-import '@mantine/core/styles.css';
-import '@mantine/carousel/styles.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { createTheme, MantineProvider } from "@mantine/core";
+import "@mantine/core/styles.css";
+import "@mantine/carousel/styles.css";
+
+import { Provider } from "react-redux";
 
 const theme = createTheme({
   /** Put your mantine theme override here */
-  fontFamily: 'Roboto, Montserrat, sans-serif',
+  fontFamily: "Roboto, Montserrat, sans-serif",
 });
 
-
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
     <MantineProvider theme={theme}>
-      <App />
+        <App />
     </MantineProvider>
   </React.StrictMode>
 );
